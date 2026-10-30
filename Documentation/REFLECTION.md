@@ -33,5 +33,5 @@ Suggested structure:
 - Explain why a game engine required more integration and testing.
 - Discuss how AI could produce pieces but could not automatically verify the final player experience.
 
-Final word count: **[PENDING]**
+Final word count: **Not applicable until the student replaces this worksheet with a reviewed 200–300 word personal reflection.**
 
