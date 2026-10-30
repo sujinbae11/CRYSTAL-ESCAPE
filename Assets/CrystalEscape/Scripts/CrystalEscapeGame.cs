@@ -54,7 +54,7 @@ namespace CrystalEscape
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Initialize()
         {
-            if (UnityEngine.Object.FindFirstObjectByType<CrystalEscapeRuntime>() != null)
+            if (UnityEngine.Object.FindAnyObjectByType<CrystalEscapeRuntime>() != null)
             {
                 return;
             }
@@ -152,7 +152,7 @@ namespace CrystalEscape
 
             Camera existingCamera = Camera.main;
             if (existingCamera != null) Destroy(existingCamera.gameObject);
-            Light existingLight = UnityEngine.Object.FindFirstObjectByType<Light>();
+            Light existingLight = UnityEngine.Object.FindAnyObjectByType<Light>();
             if (existingLight != null) Destroy(existingLight.gameObject);
 
             GameObject moonLightObject = new GameObject("Cold Moonlight");
@@ -601,7 +601,7 @@ namespace CrystalEscape
             scaler.referenceResolution = new Vector2(1920f, 1080f);
             canvasObject.AddComponent<GraphicRaycaster>();
 
-            if (UnityEngine.Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
+            if (UnityEngine.Object.FindAnyObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
             {
                 GameObject eventSystem = new GameObject("Event System");
                 eventSystem.AddComponent<UnityEngine.EventSystems.EventSystem>();
