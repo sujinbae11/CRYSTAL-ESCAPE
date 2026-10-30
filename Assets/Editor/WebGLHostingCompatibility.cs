@@ -12,8 +12,11 @@ public sealed class WebGLHostingCompatibility : IPreprocessBuildWithReport
         if (report.summary.platform != BuildTarget.WebGL)
             return;
 
-        PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
-        PlayerSettings.WebGL.decompressionFallback = true;
+        // Unity Cloud's private player could not fetch either .gz or
+        // decompression-fallback .unityweb payloads. An uncompressed WebGL
+        // package is larger, but it works without special response headers.
+        PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Disabled;
+        PlayerSettings.WebGL.decompressionFallback = false;
     }
 }
 #endif
